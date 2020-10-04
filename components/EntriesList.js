@@ -27,9 +27,11 @@ export default function EntriesList(props) {
           <h2>{entry.firstName} {entry.lastName}</h2>
           <p>Wait time: {entry.waitTime}</p>
           <p>Notes: {entry.note}</p>
-          <Link href="/entry/[id]" as={'/entry/' + entry.id}>
-            <a>View details</a>
-          </Link>
+          {entry.id &&
+            <Link href="/entry/[id]" as={'/entry/' + entry.id}>
+              <a>View details</a>
+            </Link>
+          }
 
           {props.loggedIn ? (
             edit === entry.id

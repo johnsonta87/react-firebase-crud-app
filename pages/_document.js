@@ -5,7 +5,6 @@ import Document, {
   Html, Main, NextScript,
 } from 'next/document';
 import { ServerStyleSheets } from '@material-ui/core/styles';
-import '../styles/App.scss';
 
 export default class MyDocument extends Document {
   render() {

@@ -3,6 +3,8 @@ import fire from '../config/fire-config';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { useRouter } from 'next/router'
+import ImageUpload from './ImageUpload'
+
 
 const CreateEntry = () => {
   const [firstName, setFirstName] = useState('');
@@ -33,6 +35,7 @@ const CreateEntry = () => {
     router.push("/")
   }
 
+
   return (
     <div>
       <h2>Add Entry</h2>
@@ -40,19 +43,26 @@ const CreateEntry = () => {
 
       <form onSubmit={handleSubmit}>
         <div>
-          <TextField id="standard-basic" label="First Name" value={firstName}
-            onChange={({ target }) => setFirstName(target.value)} required />
+          <TextField
+            id="standard-basic"
+            label="First Name"
+            value={firstName}
+            onChange={({ target }) => setFirstName(target.value)}
+            required />
         </div>
         <div>
-          <TextField id="standard-basic" label="Last Name" value={lastName}
-            onChange={({ target }) => setLastName(target.value)} required />
+          <TextField
+            id="standard-basic"
+            label="Last Name"
+            value={lastName}
+            onChange={({ target }) => setLastName(target.value)}
+            required />
         </div>
         <div>
           <TextField
             id="time"
             label="Wait time"
             type="time"
-            defaultValue="07:30"
             InputLabelProps={{
               shrink: true,
             }}
@@ -61,9 +71,9 @@ const CreateEntry = () => {
             }}
             value={waitTime}
             onChange={({ target }) => setWaitTime(target.value)}
-            required
-          />
+            required />
         </div>
+        <ImageUpload />
         <div>
           <TextField
             id="standard-multiline-static"
@@ -71,8 +81,7 @@ const CreateEntry = () => {
             multiline
             rows={4}
             value={note}
-            onChange={({ target }) => setNote(target.value)}
-          />
+            onChange={({ target }) => setNote(target.value)} />
         </div>
         <Button type="submit" variant="contained" color="primary">Save</Button>
       </form>
